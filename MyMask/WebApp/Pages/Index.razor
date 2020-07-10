@@ -1,7 +1,50 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?"/>
+<div class="ui container">
+    <div id="masthead">
+        <h1 class="ui header">MyMask</h1>
+        <h2>Make your mask fit you.</h2>
+        <div class="ui huge blue button">Get started</div>
+    </div>
+    <div class="ui vertical segment" id="threeSteps">
+        <h2 class="ui header">Three easy steps</h2>
+        <div class="ui grid">
+            <div class="row">
+                <div class="eight wide column">
+                    <h3 class="ui header">Take pictures of your face</h3>
+                    <p>Use any device, like a smartphone or a digital camera,
+                        to take pictures of your face at different angles.</p>
+                </div>
+                <div class="six wide right floated column">
+                    <img src="https://fomantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui medium bordered rounded image"
+                         alt="Person taking pictures of their face">
+                </div>
+            </div>
+            <div class="row">
+                <div class="eight wide column">
+                    <h3 class="ui header">Upload them to our tool</h3>
+                    <p>Our webapp will automatically convert these photos of your face to
+                        a 3D model of a mask frame that is designed to fit your face.</p>
+                </div>
+                <div class="six wide right floated column">
+                    <img src="https://fomantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui medium bordered rounded image"
+                         alt="Upload icon">
+                </div>
+            </div>
+            <div class="row">
+                <div class="eight wide column">
+                    <h3 class="ui header">3D print your mask frame</h3>
+                    <p>Use a 3D printer or a 3D printing service to print your mask frame.</p>
+                </div>
+                <div class="six wide right floated column">
+                    <img src="https://fomantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui medium bordered rounded image"
+                         alt="3d print icon">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui vertical container" id="callout">
+        <h1 class="ui header">Get started today</h1>
+        <div class="ui huge blue button">Open the webapp</div>
+    </div>
+</div>
