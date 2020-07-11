@@ -1,11 +1,11 @@
 @page "/About"
 
-<div>
+<div class="ui container">
     <NavBar ActiveItem="NavBar.NavPage.About"></NavBar>
-    <div style="background: #000050; height:300px">
-        <h1 style="color: white; text-align:center;  font-size:80px">About Us</h1>
+    <div style="background: #000050; height:20rem;">
+        <h1 style="color: white; text-align:center; font-size:7rem; padding-top: 5rem;">About Us</h1>
     </div>
-    <div>
+    <div class="ui vertical segment">
         <h1>Problems Faced</h1>
         <div>
             <p>Get from Devpost</p>
@@ -27,24 +27,34 @@
             <p>Get from Devpost</p>
         </div>
     </div>
+    <br/>
     <div>
         <div>
             <h1>Meet our Team</h1>
             <div class="ui four column doubling stackable grid container">
                 <div class="column">
-                    <img src="https://i.ibb.co/bmZpkZN/circle-cropped.png" class="ui medium bordered rounded image"
+                    <img src="https://i.ibb.co/bmZpkZN/circle-cropped.png" class="ui medium rounded image"
                          alt="Benjamin Smith Profile Photo">
                     <h4>Benjamin Smith</h4>
                     <p>Description</p>
                 </div>
                 <div class="column">
-                    <img src="https://i.ibb.co/s3GSw56/circle-cropped.png" class="ui medium bordered rounded image"
-                         alt="Person taking pictures of their face">
+                    <img src="https://i.ibb.co/s3GSw56/circle-cropped.png" class="ui medium rounded image"
+                         alt="Pranav Teegavarapu Profile Photo">
                     <h4>Pranav Teegavarapu</h4>
                     <p>Description</p>
                 </div>
             </div>
         </div>
     </div>
-    CITATION: You agree to reference the publication "A 3D Face Model for Pose and Illumination Invariant Face Recognition"[1] and acknowledge Prof. Dr. T. Vetter, Department of Computer Science, and the UNIVERSITY OF BASEL as the source of the DATA in any publications reporting use of it or any manual or document. A copy of all reports and papers that are for public or general release that use the DATA must be forwarded immediately upon release or publication to the DATA Principal Investigator.
+    <h1 class="ui header">Credits</h1>
+    <p>We use these libraries:</p>
+    <ul>
+        <li><a href="https://github.com/microsoft/Deep3DFaceReconstruction/">Accurate 3D Face Reconstruction with Weakly-Supervised Learning</a></li>
+        <li><a href="https://github.com/1adrianb/face-alignment">face-alignment</a></li>
+    </ul>
+    <p>In addition, a dataset that "3D Face Reconstruction" uses requires us to reference the publication "A 3D Face
+        Model for Pose and Illumination Invariant Face Recognition" and acknowledge Prof. Dr. T. Vetter, Department of
+        Computer Science, and the UNIVERSITY OF BASEL as the source of the dataset.</p>
+    <br/><br/>
 </div>
