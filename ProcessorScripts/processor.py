@@ -117,9 +117,9 @@ def get_alignment(input_img):
     # Convert that into a TSV
     tsv_output = ""
     for data_point in output:
-        output += data_point[0]
+        output += str(data_point[0])
         output += "\t"
-        output += data_point[1]
+        output += str(data_point[1])
         output += "\n"
 
     return tsv_output.rstrip()
