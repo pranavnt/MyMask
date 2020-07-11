@@ -1,11 +1,10 @@
 ﻿@page "/"
-@inject NavigationManager NavigationManager
 
 <div class="ui container">
     <div id="masthead">
         <h1 class="ui header">MyMask</h1>
         <h2>Make your mask fit you.</h2>
-        <div class="ui huge blue button" @onclick="NavigateToApp">Get started</div>
+        <div class="ui huge blue button">Get started</div>
     </div>
     <div class="ui vertical segment" id="threeSteps">
         <h2 class="ui header">Three easy steps</h2>
@@ -38,7 +37,7 @@
                     <p>Use a 3D printer or a 3D printing service to print your mask frame.</p>
                 </div>
                 <div class="six wide right floated column">
-                    <img src="https://fomantic-ui.com/examples/assets/images/wireframe/white-image.png" class="ui medium bordered rounded image"
+                    <img src="https://imgaz3.staticbg.com/thumb/large/oaupload/banggood/images/58/19/5d5ed0d8-26d0-428a-8a0c-cee98e5ea1cd.jpg" class="ui medium bordered rounded image"
                          alt="3d print icon">
                 </div>
             </div>
@@ -46,15 +45,6 @@
     </div>
     <div class="ui vertical container" id="callout">
         <h1 class="ui header">Get started today</h1>
-        <div class="ui huge blue button" @onclick="NavigateToApp">Open the webapp</div>
+        <div class="ui huge blue button">Open the webapp</div>
     </div>
 </div>
-
-@code {
-
-    private void NavigateToApp()
-    {
-        NavigationManager.NavigateTo("App");
-    }
-
-}
