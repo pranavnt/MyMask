@@ -1,7 +1,7 @@
 # Portions of this code are based on the example code here:
 # https://github.com/microsoft/Deep3DFaceReconstruction/blob/master/demo.py
 
-import sys, face_alignment
+import sys, face_alignment, random
 from skimage import io
 import tensorflow as tf
 import numpy as np
@@ -113,6 +113,7 @@ def get_alignment(input_img):
     fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, flip_input=False, device="cpu")
     input = io.imread(input_img)
     output = fa.get_landmarks(input)[-1]
+    output = random.sample(output, 5)
 
     # Convert that into a TSV
     tsv_output = ""
