@@ -112,7 +112,7 @@ def get_alignment(input_img):
     # We don't have a server with a GPU so this has to run on CPU
     fa = face_alignment.FaceAlignment(face_alignment.LandmarksType._2D, flip_input=False, device="cpu")
     input = io.imread(input_img)
-    output = fa.get_landmarks(input)[-1]
+    output = list(fa.get_landmarks(input)[-1])
     output = random.sample(output, 5)
 
     # Convert that into a TSV
