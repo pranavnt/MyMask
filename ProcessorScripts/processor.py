@@ -115,14 +115,14 @@ def get_alignment(input_img):
     output = fa.get_landmarks(input)[-1]
 
     # Convert that into a TSV
-    output = ""
+    tsv_output = ""
     for data_point in output:
         output += data_point[0]
         output += "\t"
         output += data_point[1]
         output += "\n"
 
-    return output.rstrip()
+    return tsv_output.rstrip()
 
 
 if __name__ == "__main__":
