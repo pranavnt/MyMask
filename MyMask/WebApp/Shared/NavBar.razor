@@ -1,0 +1,29 @@
+@page "/NavBar"
+
+<div class="ui secondary menu" style="margin-top: 1em;">
+    <a class="@(ActiveItem == NavPage.Home ? "active " : "")item" href="/">Home</a>
+    <a class="@(ActiveItem == NavPage.About ? "active " : "")item" href="/About">About</a>
+    @if (ActiveItem == NavPage.App)
+    {
+        <div class="right active item">App</div>
+    }
+    else
+    {
+        <div class="right item">
+            <a class="ui button" href="/App">Go to app</a>
+        </div>
+    }
+</div>
+
+@code {
+
+    public enum NavPage
+    {
+        Home,
+        About,
+        App
+    }
+    
+    [Parameter]
+    public NavPage ActiveItem { get; set; }
+}

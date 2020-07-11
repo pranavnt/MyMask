@@ -1,5 +1,41 @@
 @page "/App"
 
+<div class="ui container" id="myMaskApp">
+    <NavBar ActiveItem="NavBar.NavPage.App"></NavBar>
+    @if (Step == 0)
+    {
+        <h1 class="ui header">Welcome</h1>
+        <p>
+            This app will guide you through the process of generating a 3D printable file
+            (STL) of a mask frame to help face masks fit you better.
+        </p>
+        <p>
+            The data you upload will only be retained on the server while it is being
+            processed; it will be deleted afterwards. If you want, you can
+            <a href="https://github.com/pranavnt/MyMask">
+                see the source code for this application on GitHub.
+            </a>
+        </p>
+        <div class="ui button" @onclick="() => { Step = 1; }">Proceed</div>
+    }
+    else if (Step == 1)
+    {
+        <h1 class="ui header">Take a selfie</h1>
+        <div class="ui info message">
+            <div class="ui header">Notes</div>
+            <ul>
+                <li>Keep your entire face in the frame.</li>
+                <li>Look straight at the camera; don't rotate your head.</li>
+                <li>Take the photo in a room with good lighting.</li>
+                <li>Taking your glasses or hat off might produce a better result.</li>
+                <li>Keep your eyes open.</li>
+            </ul>
+        </div>
+        <div class="ui button" @onclick="() => { Step = 0; }">Back</div>
+        <div class="ui button" @onclick="() => { Step = 2; }">Proceed</div>
+    }
+</div>
+
 @code {
-    
+    private int Step { get; set; }
 }
