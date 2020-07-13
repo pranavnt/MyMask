@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebApp.Classes;
 
 namespace WebApp
 {
@@ -27,6 +28,9 @@ namespace WebApp
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddOptions();
+            services.Configure<ToolLocations>(Configuration.GetSection("ToolLocations"));
+            services.AddSingleton<BlazorTokenService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +54,7 @@ namespace WebApp
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });

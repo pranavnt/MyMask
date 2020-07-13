@@ -1,0 +1,42 @@
+<div class="ui steps">
+    <div class="@(CurrentStep == AppStep.Info ? "active " : "")step">
+        <i class="info icon"></i>
+        <div class="content">
+            <div class="title">Information</div>
+        </div>
+    </div>
+    <div class="@(CurrentStep == AppStep.Selfie ? "active " : "")step">
+        <i class="camera icon"></i>
+        <div class="content">
+            <div class="title">Selfie</div>
+            <div class="description">and measurements</div>
+        </div>
+    </div>
+    <div class="@(CurrentStep == AppStep.Processing ? "active " : "")step">
+        <i class="spinner icon"></i>
+        <div class="content">
+            <div class="title">Processing</div>
+        </div>
+    </div>
+    <div class="@(CurrentStep == AppStep.Download ? "active " : "")step">
+        <i class="download icon"></i>
+        <div class="content">
+            <div class="title">Download</div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    public enum AppStep
+    {
+        Info,
+        Selfie,
+        Processing,
+        Download
+    }
+    
+    [Parameter]
+    public AppStep CurrentStep { get; set; }
+    
+}

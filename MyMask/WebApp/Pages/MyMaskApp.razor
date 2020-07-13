@@ -1,8 +1,12 @@
 @page "/App"
+@using WebApp.Classes
+@inject BlazorTokenService BlazorTokenService
+@inject IJSRuntime JSRuntime
 
 <div class="ui container" id="myMaskApp">
     <NavBar ActiveItem="NavBar.NavPage.App"></NavBar>
-    @if (Step == 0)
+    <AppSteps CurrentStep="Step"></AppSteps>
+    @if (Step == AppSteps.AppStep.Info)
     {
         <h1 class="ui header">Welcome</h1>
         <p>
@@ -16,9 +20,9 @@
                 see the source code for this application on GitHub.
             </a>
         </p>
-        <div class="ui button" @onclick="() => { Step = 1; }">Proceed</div>
+        <div class="ui button" @onclick="() => {Step = AppSteps.AppStep.Selfie; InitSessionToken(); }">Proceed</div>
     }
-    else if (Step == 1)
+    else if (Step == AppSteps.AppStep.Selfie)
     {
         <h1 class="ui header">Take a selfie</h1>
         <div class="ui info message">
@@ -26,16 +30,46 @@
             <ul>
                 <li>Keep your entire face in the frame.</li>
                 <li>Look straight at the camera; don't rotate your head.</li>
+                <li>Have a neutral expression with your mouth closed.</li>
                 <li>Take the photo in a room with good lighting.</li>
                 <li>Taking your glasses or hat off might produce a better result.</li>
                 <li>Keep your eyes open.</li>
             </ul>
         </div>
-        <div class="ui button" @onclick="() => { Step = 0; }">Back</div>
-        <div class="ui button" @onclick="() => { Step = 2; }">Proceed</div>
+        <form class="ui form">
+            <label for="fileUpload" class="ui labeled icon button" id="uploadFileButton"><i class="upload icon"></i>Upload image</label>
+            <input type="file" name="FileUpload" id="fileUpload" style="display: none"/>
+        </form>
+        <div class="ui button" @onclick="() => { Step = AppSteps.AppStep.Info; }">Back</div>
+        @if (false)
+        {
+            <div class="ui button" @onclick="() => { Step = AppSteps.AppStep.Processing; }">Proceed</div>
+        }
+    }
+    else if (Step == AppSteps.AppStep.Processing)
+    {
+        <div class="ui big active centered inline loader"></div>
+        <h1 class="ui centered header">Processing</h1>
+        <h2 class="ui centered header">Don't close this tab.</h2>
+    }
+    else if (Step == AppSteps.AppStep.Download)
+    {
+        
     }
 </div>
 
 @code {
-    private int Step { get; set; }
+    private AppSteps.AppStep Step { get; set; }
+    private Guid SessionToken { get; set; }
+
+    private void InitSessionToken()
+    {
+        SessionToken = Guid.NewGuid();
+        BlazorTokenService.Tokens.Add(SessionToken.ToString());
+    }
+
+    private async Task UploadFile()
+    {
+        bool uploadStatus = await JSRuntime.InvokeAsync<bool>("uploadFile", SessionToken.ToString());
+    }
 }
